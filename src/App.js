@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        <h1>sdcd</h1>
+      </div>
     </div>
   );
 }
