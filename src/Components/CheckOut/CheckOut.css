@@ -1,0 +1,36 @@
+.border-bottom{
+   border-top: 2px solid gray !important ;
+   border-bottom: 0px !important;
+   
+}
+.border-none td {
+    border: none !important;
+}
+
+.margin{
+    margin: 5% 0 0  0;
+}
+.tbl-box-shadow{
+    box-shadow: 0 0 20px rgb(197, 197, 197);
+   padding-bottom: 15px;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-top: 15px;
+   border-radius: 30px;
+}
+.tbl-box-shadow{
+  margin-top: 6%;
+
+}
+.positioning{
+    margin-bottom: 7%;
+}
+.container h1{
+    color: #6102a0;
+    font-weight: 700;
+}
+.btn-checkOut{
+    margin-top:2%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,28 +1,51 @@
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createContext, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './App.css';
+import Admin from './Components/Admin/Admin';
+import CheckOut from './Components/CheckOut/CheckOut';
+import Home from './Components/Home/Home';
+import Login from './Components/Login/Login';
+import Orders from './Components/Orders/Orders';
+import PrivetRoute from './Components/PrivetRoute/PrivetRoute';
+import DeleteProduct from './Components/DeleteProduct/DeleteProduct';
+
+export const UserContex = createContext()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div>
-        <h1>sdcd</h1>
-      </div>
-    </div>
+
+  const [LogegInUser, setLogedInUser] = useState({});
+  return (<UserContex.Provider value={[LogegInUser, setLogedInUser]}>
+
+    <Router>
+
+      <Switch>
+        <Route path="/home">
+          <Home></Home>
+        </Route>
+        <Route exact path="/">
+          <Home></Home>
+        </Route>
+        <PrivetRoute path="/admin">
+          <Admin></Admin>
+        </PrivetRoute>
+        <PrivetRoute path="/deletProduct">
+          <DeleteProduct></DeleteProduct>
+        </PrivetRoute>
+        <Route path="/login">
+          <Login></Login>
+        </Route>
+        <PrivetRoute path="/checkout/:id">
+          <CheckOut></CheckOut>
+        </PrivetRoute>
+        <PrivetRoute path="/order">
+          <Orders></Orders>
+        </PrivetRoute>
+      </Switch>
+
+    </Router>
+  </UserContex.Provider>
+
   );
 }
 

@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.containerr{
+    width: 90%;
+    margin: 10px auto;
+}
+.heading{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+.roww{
+    display:flex;
+     flex-direction: row;
+     justify-content: space-around;
+     flex-flow: wrap;
+}
+.cardd{
+    width: 80%;
+    height: 32rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.card-headerr img{
+    width: 80%;
+    margin-left: 10%;
+    
+}
+
+.card-body{
+    padding: 20px 5px;
+    text-align: center;
+   justify-items: center;
+
+}
+.card-body p{
+    margin-bottom: 0;
+}
+.cardd:hover{
+    transform: scale(1.01);
+    box-shadow: 0 0 40px -10px rgba(0, 0, 0, 0.25);
+}
+.p-b h2{
+    margin-right: 25px;
+}
+.p-b {
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.btn-buy{
+   font-weight: 600 !important;
+}
+
+@media screen and (max-width: 888px ){
+    .p-b h2{
+        font-size: 20px;
+        margin-right: 7px;
+    }
+    .p-b button{
+        width: 110px;
+        padding: 5px;
+        font-weight: 700;
+    }
+}
