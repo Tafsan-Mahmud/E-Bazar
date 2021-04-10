@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useContext } from 'react';
 import './Login.css'
-import img from './log.jpg'
+import img from './log2.jpg'
 import facebook from './fb-png-hd.png';
 import google from './googlx.png';
 import firebase from "firebase/app";
@@ -28,6 +28,7 @@ const Login = () => {
         photo: ''
     })
     const[logedInUser , setLogedInUser] = useContext(UserContex);
+    console.log(logedInUser)
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };

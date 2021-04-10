@@ -11,7 +11,7 @@ const CheckOut = () => {
     const {imageUrl,name,price,weight,_id} = uniqepProduct
     const {id} = useParams()
     useEffect(()=>{
-        fetch(`http://localhost:5030/product/${id}`)
+        fetch(`https://calm-journey-93046.herokuapp.com/product/${id}`)
         .then(res =>res.json())
         .then(data =>{
              setUniqepProduct(data)
@@ -21,7 +21,7 @@ const CheckOut = () => {
         console.log('click for post checkOut data')
         const userDetails = {imageUrl:imageUrl ,productName:name, weight:weight ,price:price ,...logedInUser , orderDate:new Date() }
         console.log(userDetails);
-        fetch('http://localhost:5030/addOrder' ,{
+        fetch('https://calm-journey-93046.herokuapp.com/addOrder' ,{
             method:'POST' ,
             headers:{'Content-Type' :'application/json'},
             body:JSON.stringify(userDetails)

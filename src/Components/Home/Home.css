@@ -4,6 +4,9 @@
     grid-template-columns: repeat(3, 1fr);
     
 }
+.input-group{
+    width: 50%;
+}
 @media screen and (max-width: 1000px ){
     #cardBox{
         display: grid;
@@ -16,5 +19,8 @@
         display: grid;
         grid-template-columns: repeat(1 , 1fr);
         
+    }
+    .input-group{
+        width: 80%;
     }
 }

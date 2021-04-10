@@ -29,7 +29,7 @@ const Admin = () => {
             weight: data.weight,
             imageUrl: imageURL
         };
-        const url = `http://localhost:5030/addProduct`;
+        const url = `https://calm-journey-93046.herokuapp.com/addProduct`;
 
         console.log(eventData)
         fetch(url, {
@@ -39,6 +39,7 @@ const Admin = () => {
         })
             .then(res => {
                 console.log('server side response', res)
+                alert("Product data uploaded")
             })
     };
     return (
@@ -51,7 +52,7 @@ const Admin = () => {
                             <Link class="nav-link home-path " to="/home"><h5 ><FontAwesomeIcon icon={faHome} /> Back to Home</h5></Link>
                             <Link class="nav-link home-path " to="/deletProduct"><h5 ><FontAwesomeIcon icon={faTasks} /> Manage Product</h5></Link>
                             <Link class="nav-link home-path " to="/admin"><h5 ><FontAwesomeIcon icon={faPlus} /> Add Product</h5></Link>
-                            <Link class="nav-link home-path " to="/edit"><h5 ><FontAwesomeIcon icon={faEdit} /> Edit Product</h5></Link>
+                            <Link class="nav-link home-path " to="/editProduct"><h5 ><FontAwesomeIcon icon={faEdit} /> Edit Product</h5></Link>
                         </div>
                     </div>
                     <div className="filed col-9">

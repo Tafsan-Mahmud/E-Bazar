@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import Orders from './Components/Orders/Orders';
 import PrivetRoute from './Components/PrivetRoute/PrivetRoute';
 import DeleteProduct from './Components/DeleteProduct/DeleteProduct';
+import EditProduct from './Components/EditProduct/EditProduct';
 
 export const UserContex = createContext()
 
@@ -31,6 +32,9 @@ function App() {
         </PrivetRoute>
         <PrivetRoute path="/deletProduct">
           <DeleteProduct></DeleteProduct>
+        </PrivetRoute>
+        <PrivetRoute path="/editProduct">
+        <EditProduct></EditProduct>
         </PrivetRoute>
         <Route path="/login">
           <Login></Login>

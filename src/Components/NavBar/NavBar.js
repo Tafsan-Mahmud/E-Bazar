@@ -32,7 +32,12 @@ const NavBar = () => {
                                 </ul>
                                 <span style={{ display: 'flex' }} >
                                     <h3 style={{ marginRight: '15px', display: 'flex' }}>E-Bazar<h5>{logedInUser.name}</h5></h3>
-                                    <img style={{ width: '50px', borderRadius: '7px' }} src={logedInUser.photo} alt="" />
+                                    {
+
+                                        logedInUser.email ? <img style={{ width: '50px', borderRadius: '7px' }} src={logedInUser.photo} alt="" />
+                                        :
+                                        <img style={{ width: '50px', borderRadius: '7px' }} src={logo} alt="" />
+                                    }
                                 </span>
                             </div>
                         </div>

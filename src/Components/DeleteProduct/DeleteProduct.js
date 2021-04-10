@@ -9,15 +9,15 @@ import './DeleteProduct.css';
 const DeleteProduct = () => {
     const [importDelete, setimportDelete] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5030/getdata')
+        fetch('https://calm-journey-93046.herokuapp.com/getdata')
             .then(res => res.json())
             .then(data => {
                 setimportDelete(data);
             })
-    }, [])
+    }, [importDelete])
     const productDelete = (id ,) => {
         console.log('product id: ', id)
-        fetch(`http://localhost:5030/delete/${id}`, {
+        fetch(`https://calm-journey-93046.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -33,9 +33,9 @@ const DeleteProduct = () => {
                         <h2><FontAwesomeIcon icon={faShippingFast} /> E-Bazar</h2>
                         <div className="add-section-sizing">
                             <Link class="nav-link home-path " to="/home"><h5 ><FontAwesomeIcon icon={faHome} /> Back to Home</h5></Link>
-                            <Link class="nav-link home-path " to="/manag-pd"><h5 ><FontAwesomeIcon icon={faTasks} /> Manage Product</h5></Link>
+                            <Link class="nav-link home-path " to="/deletProduct"><h5 ><FontAwesomeIcon icon={faTasks} /> Manage Product</h5></Link>
                             <Link class="nav-link home-path " to="/admin"><h5 ><FontAwesomeIcon icon={faPlus} /> Add Product</h5></Link>
-                            <Link class="nav-link home-path " to="/edit"><h5 ><FontAwesomeIcon icon={faEdit} /> Edit Product</h5></Link>
+                            <Link class="nav-link home-path " to="/editProduct"><h5 ><FontAwesomeIcon icon={faEdit} /> Edit Product</h5></Link>
                         </div>
                     </div>
                     <div className="filed he-f col-9">
@@ -47,8 +47,19 @@ const DeleteProduct = () => {
                                     <th scope="col">Weight</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">$ Price</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
+                            <div className="spinnered">
+                                {
+                                    importDelete.length === 0 &&
+                                    <div className="spinner-border" style={{ width: ' 3rem', height: ' 3rem', }} role="status">
+                                    </div>
+                                }
+                                 {
+                                    importDelete.length === 0 && <p>Loading...</p>
+                                }
+                            </div>
                             <tbody>
 
                                 {
@@ -57,8 +68,8 @@ const DeleteProduct = () => {
                                         <td>{product.weight}</td>
                                         <td>1</td>
                                         <td>$ {product.price}</td>
-                                        <button onClick={()=>productDelete(product._id, )}><FontAwesomeIcon icon={faTrashAlt} /> delete</button>
-                                        {/* <img onClick={()=>productDelete(product._id)} style={{width:'55px'}} src={delet} alt=""/> */}
+                                        {/* <button onClick={()=>productDelete(product._id)}><FontAwesomeIcon icon={faTrashAlt} /> delete</button> */}
+                                       <td> <img onClick={()=>productDelete(product._id)} style={{width:'45px'}} src={delet} alt=""/></td>
                                     </tr>
 
                                     )

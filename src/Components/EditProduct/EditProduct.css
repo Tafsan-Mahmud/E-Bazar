@@ -1,0 +1,29 @@
+.update-input-filed input{
+    background: #e3efffc7;
+    margin: 2%;
+}
+.update-input-filed{
+    margin-top: 1%;
+}
+.update-input-filed button{
+    margin:2%;
+}
+.spinnered{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    bottom: 60%;
+    right: 0%;
+    left: 50%;
+    color: red;
+}
+.spinnered p {
+   position: absolute;
+   margin-top: 10%;
+}
+@media(max-width: 768px){
+    .spinnered p {
+        position: absolute;
+        margin-top: 21%;
+     }
+}

@@ -7,3 +7,12 @@
     text-align: center;
     background: #bff5c8;
 }
+.spinnered2{
+        display: flex;
+        position: absolute;
+        top: 55%;
+        bottom: 45%;
+        right: 0%;
+        left: 50%;
+        color: red;
+}
