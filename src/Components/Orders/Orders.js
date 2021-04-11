@@ -10,7 +10,6 @@ const Orders = () => {
         fetch('https://calm-journey-93046.herokuapp.com/orderDetails?email=' + logedInUser.email)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setOrderCollection(data)
             })
     }, [])
@@ -18,7 +17,7 @@ const Orders = () => {
         <div>
             <NavBar></NavBar>
             <div className="user-name container ">
-                <h1>Hello <span style={{ color: '#f00c32' }}> {logedInUser.name}</span> Sir Here Is Your - {orderCollection.length} Orders $ </h1>
+                <h1>Hello <span style={{ color: '#f00c32' }}> {logedInUser.name}</span> Sir Here Is Your - {orderCollection.length} Order $ </h1>
             </div>
             <h5 className="container" style={{ color: 'rgb(33, 21, 199)', borderRadius: '30px', padding: '5px', textAlign: 'center', background: 'lightgray' }}>your email: {logedInUser.email} </h5>
             <div className="container ">
@@ -39,9 +38,9 @@ const Orders = () => {
                                 <div className="spinner-border" style={{ width: ' 3rem', height: ' 3rem', }} role="status">
                                 </div>
                             }
-                             {
-                                    orderCollection.length === 0 && <p>Loading...</p>
-                                }
+                            {
+                                orderCollection.length === 0 && <p>Loading...</p>
+                            }
                         </div>
 
                         {

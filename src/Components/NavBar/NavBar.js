@@ -6,8 +6,7 @@ import { UserContex } from '../../App';
 
 const NavBar = () => {
     const [logedInUser, setLogedInUser] = useContext(UserContex);
-    console.log(logedInUser)
-   
+    console.log(logedInUser);
     return (
         <div>
             <div>
@@ -35,8 +34,8 @@ const NavBar = () => {
                                     {
 
                                         logedInUser.email ? <img style={{ width: '50px', borderRadius: '7px' }} src={logedInUser.photo} alt="" />
-                                        :
-                                        <img style={{ width: '50px', borderRadius: '7px' }} src={logo} alt="" />
+                                            :
+                                            <img style={{ width: '50px', borderRadius: '7px' }} src={logo} alt="" />
                                     }
                                 </span>
                             </div>

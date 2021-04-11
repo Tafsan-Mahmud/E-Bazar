@@ -7,31 +7,30 @@ import { UserContex } from '../../App';
 
 const CheckOut = () => {
     const [logedInUser, setLogedInUser] = useContext(UserContex);
-    const [uniqepProduct , setUniqepProduct] = useState({});
-    const {imageUrl,name,price,weight,_id} = uniqepProduct
-    const {id} = useParams()
-    useEffect(()=>{
+    const [uniqepProduct, setUniqepProduct] = useState({});
+    const { imageUrl, name, price, weight, _id } = uniqepProduct
+    const { id } = useParams()
+    useEffect(() => {
         fetch(`https://calm-journey-93046.herokuapp.com/product/${id}`)
-        .then(res =>res.json())
-        .then(data =>{
-             setUniqepProduct(data)
-        })
-    },[id])
-    const handleFinalCheckOut = () =>{
-        console.log('click for post checkOut data')
-        const userDetails = {imageUrl:imageUrl ,productName:name, weight:weight ,price:price ,...logedInUser , orderDate:new Date() }
+            .then(res => res.json())
+            .then(data => {
+                setUniqepProduct(data)
+            })
+    }, [id])
+    const handleFinalCheckOut = () => {
+        const userDetails = { imageUrl: imageUrl, productName: name, weight: weight, price: price, ...logedInUser, orderDate: new Date() }
         console.log(userDetails);
-        fetch('https://calm-journey-93046.herokuapp.com/addOrder' ,{
-            method:'POST' ,
-            headers:{'Content-Type' :'application/json'},
-            body:JSON.stringify(userDetails)
+        fetch('https://calm-journey-93046.herokuapp.com/addOrder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userDetails)
         })
-        .then(res =>res.json())
-        .then(data =>{
-            if(data){
-                alert('Congratulation sir Your order is placed')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('Congratulation sir Your order is placed')
+                }
+            })
     }
     return (
         <div className="container">
@@ -57,7 +56,7 @@ const CheckOut = () => {
                         <tr>
                             <td>product id: {_id}</td>
                             <td></td>
-                            <td></td> 
+                            <td></td>
                         </tr>
                         <tr className="border-bottom">
                             <td>Total :</td>
@@ -68,7 +67,7 @@ const CheckOut = () => {
                 </table>
             </div>
             <div className="btn-checkOut">
-                <Button variant="contained" onClick={handleFinalCheckOut} style={{background:'#76ff03'}} >CheckOut</Button>
+                <Button variant="contained" onClick={handleFinalCheckOut} style={{ background: '#76ff03' }} >CheckOut</Button>
             </div>
         </div>
     );

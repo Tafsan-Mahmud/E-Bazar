@@ -10,9 +10,7 @@ import { Button } from '@material-ui/core';
 const EditProduct = () => {
     const [importDelete, setimportDelete] = useState([]);
     const [changeData, setChangeData] = useState([])
-    // console.log(changeData);
     const [singleProduct, setsingleProduct] = useState([])
-    // console.log(singleProduct);
 
     useEffect(() => {
         fetch('https://calm-journey-93046.herokuapp.com/getdata')
@@ -22,23 +20,19 @@ const EditProduct = () => {
             })
     }, [importDelete])
     const productEdit = (id) => {
-        console.log(id)
         fetch(`https://calm-journey-93046.herokuapp.com/editProduct/${id}`)
             .then(res => res.json())
             .then(result => {
                 setsingleProduct(result)
-                console.log(' succfully', result._id)
             })
     }
 
     function updateing(id) {
-        console.log("find id", id)
-        // const name = document.getElementById('name').value
-        // const price = document.getElementById('price').value
-        // const weight = document.getElementById('weight').value
-        const { name, price, weight } = changeData;
+        const name = document.getElementById('name').value
+        const price = document.getElementById('price').value
+        const weight = document.getElementById('weight').value
+        // const { name, price, weight } = changeData;
         const product = { id, name, price, weight }
-        console.log(product)
         fetch(`https://calm-journey-93046.herokuapp.com/update/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -47,7 +41,7 @@ const EditProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                  alert('Edite Successfully Done please close the system')
+                    alert('Edite Successfully Done please close the system')
                 }
             })
     }
@@ -76,9 +70,12 @@ const EditProduct = () => {
                                         </div>
                                         <div id="update-formm" class="modal-body">
                                             <form className="container update-input-filed" onSubmit={handleSubmit(onSubmit)}>
-                                                <input name="name" id="name" className="form-control" type='text' placeholder="enter name" ref={register} required />
-                                                <input name="price" id="price" className="form-control" type='text' placeholder="enter price" ref={register} required />
-                                                <input name="weight" id="weight" className="form-control" type='text' placeholder="enter weight" ref={register} required />
+                                                <input name="name" id="name" defaultValue={singleProduct.name} className="form-control" type='text' placeholder="enter name" ref={register} required />
+
+                                                <input name="price" id="price" defaultValue={singleProduct.price} className="form-control" type='text' placeholder="enter price" ref={register} required />
+
+                                                <input name="weight" id="weight" defaultValue={singleProduct.weight} className="form-control" type='text' placeholder="enter weight" ref={register} required />
+
                                                 <Button type="submit" onClick={() => updateing(singleProduct._id)} className="btn-buy" variant="contained" color="secondary"> <span style={{ marginLeft: '5px' }}> Save To Database</span></Button>
                                             </form>
                                         </div>

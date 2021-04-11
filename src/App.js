@@ -19,7 +19,6 @@ function App() {
   return (<UserContex.Provider value={[LogegInUser, setLogedInUser]}>
 
     <Router>
-
       <Switch>
         <Route path="/home">
           <Home></Home>
@@ -34,7 +33,7 @@ function App() {
           <DeleteProduct></DeleteProduct>
         </PrivetRoute>
         <PrivetRoute path="/editProduct">
-        <EditProduct></EditProduct>
+          <EditProduct></EditProduct>
         </PrivetRoute>
         <Route path="/login">
           <Login></Login>
@@ -46,7 +45,6 @@ function App() {
           <Orders></Orders>
         </PrivetRoute>
       </Switch>
-
     </Router>
   </UserContex.Provider>
 

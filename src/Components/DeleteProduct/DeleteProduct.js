@@ -15,14 +15,15 @@ const DeleteProduct = () => {
                 setimportDelete(data);
             })
     }, [importDelete])
-    const productDelete = (id ,) => {
-        console.log('product id: ', id)
+    const productDelete = (id,) => {
         fetch(`https://calm-journey-93046.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(result => {
-                console.log('delete succfully' ,result)
+                if (result) {
+                    alert('Delete Successfull')
+                }
             })
     }
     return (
@@ -56,7 +57,7 @@ const DeleteProduct = () => {
                                     <div className="spinner-border" style={{ width: ' 3rem', height: ' 3rem', }} role="status">
                                     </div>
                                 }
-                                 {
+                                {
                                     importDelete.length === 0 && <p>Loading...</p>
                                 }
                             </div>
@@ -69,7 +70,7 @@ const DeleteProduct = () => {
                                         <td>1</td>
                                         <td>$ {product.price}</td>
                                         {/* <button onClick={()=>productDelete(product._id)}><FontAwesomeIcon icon={faTrashAlt} /> delete</button> */}
-                                       <td> <img onClick={()=>productDelete(product._id)} style={{width:'45px'}} src={delet} alt=""/></td>
+                                        <td> <img onClick={() => productDelete(product._id)} className="img-admin-manage" src={delet} alt="" /></td>
                                     </tr>
 
                                     )

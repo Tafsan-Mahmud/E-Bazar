@@ -38,7 +38,6 @@ const Admin = () => {
             body: JSON.stringify(eventData)
         })
             .then(res => {
-                console.log('server side response', res)
                 alert("Product data uploaded")
             })
     };
@@ -60,14 +59,14 @@ const Admin = () => {
                         <h3>Add Product</h3>
                         <div className="input-filed container-lg">
                             <form className="d-flex row" onSubmit={handleSubmit(onSubmit)}>
-                                <div className="name-price col-4">
+                                <div className="name-price col-6">
                                     <h6>Product Name</h6>
                                     <input className="form-control" name="name" ref={register} placeholder="type product name" required />
 
                                     <h6>Add Price</h6>
                                     <input className="form-control" name="price" ref={register} placeholder="type product price" required />
                                 </div>
-                                <div className="weight-UPimg col-4">
+                                <div className="weight-UPimg col-6">
                                     <h6>Weight</h6>
                                     <input className="form-control" name="weight" ref={register} placeholder="type product weight" required />
 

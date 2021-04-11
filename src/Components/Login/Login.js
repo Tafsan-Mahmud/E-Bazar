@@ -27,8 +27,7 @@ const Login = () => {
         email: '',
         photo: ''
     })
-    const[logedInUser , setLogedInUser] = useContext(UserContex);
-    console.log(logedInUser)
+    const [logedInUser, setLogedInUser] = useContext(UserContex);
     const history = useHistory();
     const location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
@@ -45,7 +44,6 @@ const Login = () => {
                     email: email,
                     photo: photoURL
                 }
-                console.log(res.user)
                 setUser(signedInUser)
                 setLogedInUser(signedInUser)
                 history.replace(from);
@@ -64,20 +62,14 @@ const Login = () => {
                 var credential = result.credential;
                 const user = result.user;
                 var accessToken = credential.accessToken;
-                console.log(user)
                 setLogedInUser(user)
                 history.replace(from);
             })
             .catch((error) => {
-                // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // The email of the user's account used.
                 var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
-
-                // ...
             });
     };
 
@@ -95,7 +87,6 @@ const Login = () => {
                     success: false
                 }
                 setUser(isSginedOut);
-                console.log(res)
             })
             .catch(res => {
 
@@ -129,7 +120,6 @@ const Login = () => {
                     setUser(NewUSerInfo);
                     setLogedInUser(NewUSerInfo)
                     history.replace(from);
-                    console.log('sign in user info', res)
                 })
                 .catch((error) => {
                     const NewUSerInfo = { ...user }
@@ -182,12 +172,12 @@ const Login = () => {
                         <h2>Login</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="inputBx">
-                                { newUser && <span> Name</span>}
+                                {newUser && <span> Name</span>}
                                 {newUser && <input type="text" onBlur={handleBlur} placeholder="your name" required name="name" />}
                             </div>
                             <div className="inputBx">
                                 <span>Username or Email</span>
-                                <input type="text" onBlur={handleBlur}placeholder="enter your email" required name="email" />
+                                <input type="text" onBlur={handleBlur} placeholder="enter your email" required name="email" />
                             </div>
                             <div className="inputBx">
                                 <span>Password</span>
@@ -204,7 +194,7 @@ const Login = () => {
                                 <input type="submit" value={newUser ? 'sign up' : 'sign in'} />
                             </div>
                             <div className="inputBx">
-                                <p> {newUser ? 'Already have an account?' : 'Do not have an account?' }<button className="btn-sign" onClick={() => setNewUSer(!newUser)}>{ newUser ? 'Sign in' : 'Sign Up'}</button> </p>
+                                <p> {newUser ? 'Already have an account?' : 'Do not have an account?'}<button className="btn-sign" onClick={() => setNewUSer(!newUser)}>{newUser ? 'Sign in' : 'Sign Up'}</button> </p>
                             </div>
                         </form>
                         <h3>Login with social media</h3>

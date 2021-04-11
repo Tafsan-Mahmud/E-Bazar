@@ -5,3 +5,9 @@
     color: rgb(87, 5, 182);
     font-weight: 700;
 }
+.img-admin-manage{
+    width: 45px;
+}
+@media(max-width: 520px){
+    
+}

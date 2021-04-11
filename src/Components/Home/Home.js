@@ -12,7 +12,6 @@ const Home = () => {
             .then(res => res.json())
             .then(data => {
                 setProductData(data)
-                console.log(data)
             })
     }, [])
     return (
@@ -24,7 +23,7 @@ const Home = () => {
                 <Button variant="contained" style={{ backgroundColor: "rgb(99, 199, 60)", color: "white" }} >Search</Button>
                 <input type="text" className="form-control" placeholder="search what you need" aria-label="Example text with button addon" aria-describedby="button-addon1" />
             </div>
-            <div className="spinnered">
+            <div className="spinneredh">
                 {
                     productData.length === 0 &&
                     <div className="spinner-border" style={{ width: ' 3rem', height: ' 3rem', }} role="status">

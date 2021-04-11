@@ -7,6 +7,20 @@
 .input-group{
     width: 50%;
 }
+.spinneredh{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    bottom: 60%;
+    right: 0%;
+    left: 50%;
+    color: red;
+}
+.spinneredh p {
+    position: absolute;
+    margin-top: 7.5%;
+    margin-left: -4px;
+}
 @media screen and (max-width: 1000px ){
     #cardBox{
         display: grid;
